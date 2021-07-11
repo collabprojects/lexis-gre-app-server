@@ -50,6 +50,13 @@ class Word(Resource):
         return word, 200
 
     @marshal_with(resource_fields)
+    def delete(self,id):
+        word = WordTable.query.filter_by(id = id).first()
+        db.session.delete(word)
+        db.session.commit()
+        return 204
+
+    @marshal_with(resource_fields)
     def patch(self,id):
         args = word.parse_args()
         result = WordTable.query.filter_by(id=id).first()
