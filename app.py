@@ -48,6 +48,23 @@ class Word(Resource):
     def get(self, id):
         word = WordTable.query.filter_by(id = id).first()
         return word, 200
+
+    @marshal_with(resource_fields)
+    def patch(self,id):
+        args = word.parse_args()
+        result = WordTable.query.filter_by(id=id).first()
+        if not result:
+            abort(409, message = "Word Not Found")
+        result.word = args['word']
+        result.primary_meaning = args['primary_meaning']
+        result.secondary_meaning = args['secondary_meaning']
+        result.sentence = args['sentence']
+        result.synonym = args['synonym']
+        result.antonym = args['antonym']
+        
+        db.session.commit()
+
+    
     
 
 class Words(Resource):
@@ -75,8 +92,12 @@ class Words(Resource):
         db.session.commit()
         return new_word, 201
 
+
+   
+
 api.add_resource(Word, "/word/<int:id>")
 api.add_resource(Words, "/words/")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
