@@ -9,7 +9,7 @@ app = Flask(__name__)
 api = Api(app)
 CORS(app)
 HEROKU_DB = os.environ.get('DATABASE_URL')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://puadyvppnbevtd:b99f0a910530926b54fd86b20c6f5a55abf2f2c830d7791b155a6610200cd2d0@ec2-18-206-20-102.compute-1.amazonaws.com:5432/d8dr6hi7dfq9bt'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://dwongmxgwabmda:901556b1e14f58cb5958abdda7e085cdf89a645e4ee5fa49f67feb4ac0a75593@ec2-54-158-232-223.compute-1.amazonaws.com:5432/de4pp95c22ceoo'
 db = SQLAlchemy(app)
 
 
