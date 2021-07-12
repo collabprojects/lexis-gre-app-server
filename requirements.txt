@@ -1,6 +1,6 @@
+Flask_RESTful==0.3.9
 Flask==2.0.1
 Flask_SQLAlchemy==2.5.1
-requests==2.25.1
-Flask_RESTful==0.3.9
 Flask_Cors==3.0.10
+requests==2.25.1
 gunicorn
