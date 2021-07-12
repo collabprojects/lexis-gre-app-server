@@ -7,7 +7,8 @@ from flask_cors import CORS
 app = Flask(__name__)
 api = Api(app)
 CORS(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///lexis.db'
+HEROKU_DB = os.environ.get('DATABASE_URL')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://puadyvppnbevtd:b99f0a910530926b54fd86b20c6f5a55abf2f2c830d7791b155a6610200cd2d0@ec2-18-206-20-102.compute-1.amazonaws.com:5432/d8dr6hi7dfq9bt'
 db = SQLAlchemy(app)
 
 
